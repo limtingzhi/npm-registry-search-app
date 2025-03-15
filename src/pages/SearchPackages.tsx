@@ -2,7 +2,7 @@ import { Alert, Container, Stack } from '@mui/material';
 import SearchInput from '../components/SearchInput/SearchInput';
 import useSearchPackages from '../hooks/useSearchPackages';
 
-function App() {
+function SearchPackages() {
   const { errorMsg, searchPackages } = useSearchPackages();
 
   return (
@@ -15,4 +15,4 @@ function App() {
   );
 }
 
-export default App;
+export default SearchPackages;
