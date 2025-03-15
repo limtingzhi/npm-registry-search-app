@@ -1,19 +1,20 @@
 import { useCallback, useState } from 'react';
-import { Package } from '../typings/package';
+import { getPackages } from '../api/npmRegistry';
+import { SearchPackage } from '../typings/npm-registry';
 
 interface UseSearch {
   errorMsg: string | null;
   isLoading: boolean;
-  searchPackages: (searchInput: string) => void;
-  searchResults: Package[];
+  searchPackages: (searchInput: string, page: number) => void;
+  searchResults: SearchPackage[];
 }
 
 function useSearchPackages(): UseSearch {
   const [isLoading, setIsLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
-  const [searchResults, setSearchResults] = useState<Package[]>([]);
+  const [searchResults, setSearchResults] = useState<SearchPackage[]>([]);
 
-  const searchPackages = useCallback(async (searchInput: string) => {
+  const searchPackages = useCallback(async (searchInput: string, page: number) => {
     const trimmedSearchInput = searchInput.trim();
 
     if (trimmedSearchInput === '') {
@@ -26,9 +27,9 @@ function useSearchPackages(): UseSearch {
     setSearchResults([]);
 
     try {
-      // TODO: Call API and setSearchResults
-      console.log(trimmedSearchInput);
-      setSearchResults([]);
+      const result = await getPackages(trimmedSearchInput, page);
+
+      setSearchResults(result.objects);
     } catch (error: any) {
       setErrorMsg(error.message);
     } finally {
