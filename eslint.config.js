@@ -60,6 +60,15 @@ export default [
       'no-console': 'warn',
       'react/jsx-filename-extension': 0,
       'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
+      'sort-imports': [
+        'error',
+        {
+          ignoreCase: false,
+          ignoreDeclarationSort: true,
+          ignoreMemberSort: false,
+          memberSyntaxSortOrder: ['none', 'all', 'multiple', 'single'],
+        },
+      ],
     },
   },
 ];
