@@ -1,4 +1,5 @@
 import stylistic from '@stylistic/eslint-plugin';
+import typescriptEslintPlugin from '@typescript-eslint/eslint-plugin';
 import typescriptParser from '@typescript-eslint/parser';
 import importPlugin from 'eslint-plugin-import';
 import reactPlugin from 'eslint-plugin-react';
@@ -11,6 +12,7 @@ export default [
   {
     plugins: {
       '@stylistic': stylistic,
+      '@typescript-eslint': typescriptEslintPlugin,
       'import': importPlugin,
       'react': reactPlugin,
       'react-hooks': reactHooksPlugin,
@@ -40,6 +42,10 @@ export default [
         },
       ],
       '@stylistic/semi': ['error', 'always'],
+      '@typescript-eslint/no-unused-vars': [
+        'error',
+        { vars: 'all', args: 'after-used', ignoreRestSiblings: true },
+      ],
       'import/order': [
         'error',
         {
@@ -51,7 +57,6 @@ export default [
           },
         },
       ],
-      'no-unused-vars': ['error', { vars: 'all', args: 'after-used', ignoreRestSiblings: true }],
       'react/jsx-filename-extension': 0,
       'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
     },
