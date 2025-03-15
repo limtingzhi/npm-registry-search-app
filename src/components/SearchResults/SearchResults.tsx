@@ -2,11 +2,19 @@ import { Box } from '@mui/material';
 import { SearchPackage } from '../../typings/npm-registry';
 
 interface Props {
-  searchResults: SearchPackage[];
+  searchResults: SearchPackage[] | null;
 }
 
 function SearchResults(props: Props) {
   const { searchResults } = props;
+
+  if (searchResults === null) {
+    return;
+  }
+
+  if (searchResults.length === 0) {
+    return <Box>No results found</Box>;
+  }
 
   return (
     <Box>
