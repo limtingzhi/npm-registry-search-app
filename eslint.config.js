@@ -57,6 +57,7 @@ export default [
           },
         },
       ],
+      'no-console': 'warn',
       'react/jsx-filename-extension': 0,
       'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
     },

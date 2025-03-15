@@ -1,8 +1,14 @@
+import { Container } from '@mui/material';
+import SearchInput from '../components/SearchInput/SearchInput';
+import useSearchPackages from '../hooks/useSearchPackages';
+
 function App() {
+  const { searchPackages } = useSearchPackages();
+
   return (
-    <div>
-      NPM Registry Search
-    </div>
+    <Container>
+      <SearchInput searchPackages={searchPackages} />
+    </Container>
   );
 }
 
