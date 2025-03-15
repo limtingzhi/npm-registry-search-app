@@ -1,13 +1,16 @@
-import { Container } from '@mui/material';
+import { Alert, Container, Stack } from '@mui/material';
 import SearchInput from '../components/SearchInput/SearchInput';
 import useSearchPackages from '../hooks/useSearchPackages';
 
 function App() {
-  const { searchPackages } = useSearchPackages();
+  const { errorMsg, searchPackages } = useSearchPackages();
 
   return (
     <Container>
-      <SearchInput searchPackages={searchPackages} />
+      <Stack spacing={3}>
+        <SearchInput searchPackages={searchPackages} />
+        {errorMsg && <Alert severity="error" variant="filled">{errorMsg}</Alert>}
+      </Stack>
     </Container>
   );
 }
