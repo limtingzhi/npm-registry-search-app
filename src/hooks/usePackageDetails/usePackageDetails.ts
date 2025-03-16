@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from 'react';
-import { getPackageDetails } from '../api/npmRegistry';
-import { PackageObj } from '../typings/npm-registry';
+import { getPackageDetails } from '../../api/npmRegistry';
+import { PackageObj } from '../../typings/npm-registry';
 
 interface Props {
   packageName: string | null;
