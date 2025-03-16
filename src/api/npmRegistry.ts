@@ -19,10 +19,7 @@ async function getPackages(searchInput: string, page: number): Promise<SearchPac
     }
 
     return await response.json();
-  } catch (error) {
-    // eslint-disable-next-line no-console
-    console.error('Error getting packages:', error);
-
+  } catch {
     throw new Error('Failed to load search results. Please try again.');
   }
 }
@@ -43,9 +40,6 @@ async function getPackageDetails(packageName: string): Promise<PackageObj> {
 
     return await response.json();
   } catch (error: any) {
-    // eslint-disable-next-line no-console
-    console.error('Error getting package details:', error);
-
     if (error.message.includes('404')) {
       throw new Error(
         `Package '${packageName}' not found. Please check the package name and try again.`,
@@ -56,4 +50,7 @@ async function getPackageDetails(packageName: string): Promise<PackageObj> {
   }
 }
 
-export { getPackages, getPackageDetails };
+export {
+  getPackages,
+  getPackageDetails,
+};

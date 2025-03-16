@@ -30,7 +30,6 @@ interface SearchPackageObj {
       username: string;
     };
     sanitized_name: string;
-    updated: string;
     version: string;
   };
   score: {
@@ -41,6 +40,8 @@ interface SearchPackageObj {
     };
     final: number;
   };
+  searchScore: number;
+  updated: string;
 }
 
 interface SearchPackagesResponse {
@@ -56,7 +57,9 @@ interface Author {
 }
 
 interface Repository {
-  interface: string;
+  directory?: string;
+  interface?: string;
+  type?: string;
   url: string;
 }
 
@@ -66,10 +69,13 @@ interface DistTags {
 }
 
 interface Version {
+  _hasShrinkwrap?: boolean;
   _id: string;
+  _nodeVersion?: string;
   _npmUser: Author;
   _npmVersion: string;
   author?: Author;
+  bugs?: Record<string, string>;
   dependencies?: Record<string, string>;
   description?: string;
   devDependencies?: Record<string, string>;
@@ -86,7 +92,13 @@ interface Version {
     'tarball': string;
     'unpackedSize'?: number;
   };
+  engines?: Record<string, string>;
+  exports?: Record<string, Record<string>>;
+  gitHead?: string;
   homepage?: string;
+  keywords?: string[];
+  license?: string;
+  main?: string;
   maintainers: Author[];
   name: string;
   readme?: string;
@@ -101,17 +113,23 @@ interface PackageObj {
   '_id': string;
   '_rev'?: string;
   'author'?: Author;
+  'bugs'?: Record<string, string>;
   'description'?: string;
   'dist-tags'?: DistTags;
+  'homepage'?: string;
+  'keywords'?: string[];
   'license'?: string;
+  'maintainers'?: Author[];
   'name': string;
   'readme'?: string;
+  'readmeFilename'?: string;
   'repository'?: Repository;
   'time'?: {
     created: string;
     modified: string;
     [key: string]: string;
   };
+  'users'?: Record<string, boolean>;
   'versions'?: Record<string, Version>;
 }
 
