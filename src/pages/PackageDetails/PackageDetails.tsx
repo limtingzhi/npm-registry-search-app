@@ -1,7 +1,7 @@
 import { Alert, Container, Skeleton, Stack } from '@mui/material';
 import { useParams } from 'react-router';
-import Package from '../components/Package/Package';
-import usePackageDetails from '../hooks/usePackageDetails/usePackageDetails';
+import Package from '../../components/Package/Package';
+import usePackageDetails from '../../hooks/usePackageDetails/usePackageDetails';
 
 function PackageDetails() {
   const { name } = useParams<{ name: string; }>();

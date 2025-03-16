@@ -1,7 +1,7 @@
 import { CssBaseline } from '@mui/material';
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter, Route, Routes } from 'react-router';
-import PackageDetails from './pages/PackageDetails';
+import PackageDetails from './pages/PackageDetails/PackageDetails';
 import PageNotFound from './pages/PageNotFound/PageNotFound';
 import SearchPackages from './pages/SearchPackages';
 import '@fontsource/roboto/300.css';
