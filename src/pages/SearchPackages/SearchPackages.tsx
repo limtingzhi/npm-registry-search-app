@@ -1,7 +1,7 @@
 import { Alert, Container, Stack } from '@mui/material';
-import SearchInput from '../components/SearchInput/SearchInput';
-import SearchResults from '../components/SearchResults/SearchResults';
-import useSearchPackages from '../hooks/useSearchPackages/useSearchPackages';
+import SearchInput from '../../components/SearchInput/SearchInput';
+import SearchResults from '../../components/SearchResults/SearchResults';
+import useSearchPackages from '../../hooks/useSearchPackages/useSearchPackages';
 
 function SearchPackages() {
   const { errorMsg, isLoading, noOfResults, searchPackages, searchResults } = useSearchPackages();
