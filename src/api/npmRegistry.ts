@@ -1,5 +1,5 @@
 import { SEARCH_PACKAGES_PER_PAGE } from '../constants/searchConstants';
-import { SearchPackagesResponse } from '../typings/npm-registry';
+import { PackageObj, SearchPackagesResponse } from '../typings/npm-registry';
 
 const NPM_REGISTRY_API_URL = 'https://registry.npmjs.org';
 
@@ -25,6 +25,31 @@ async function getPackages(searchInput: string, page: number): Promise<SearchPac
   }
 }
 
-export {
-  getPackages,
-};
+async function getPackageDetails(packageName: string): Promise<PackageObj> {
+  const encodedPackageName = encodeURIComponent(packageName);
+  const url = `${NPM_REGISTRY_API_URL}/${encodedPackageName}`;
+  const options = { method: 'GET' };
+
+  try {
+    const response = await fetch(url, options);
+
+    if (!response.ok) {
+      throw new Error(`Error getting package details: ${response.status} ${response.statusText}`);
+    }
+
+    return await response.json();
+  } catch (error: any) {
+    // eslint-disable-next-line no-console
+    console.error('Error getting package details:', error);
+
+    if (error.message.includes('404')) {
+      throw new Error(
+        `Package '${packageName}' not found. Please check the package name and try again.`,
+      );
+    }
+
+    throw new Error('Failed to load package details. Please try again.');
+  }
+}
+
+export { getPackages, getPackageDetails };
