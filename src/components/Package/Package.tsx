@@ -52,7 +52,7 @@ function Package(props: Props) {
           />
           <PackageInfo
             title="License"
-            body={packageDetails.license || 'No license specified'}
+            body={packageDetails.license || 'No license available'}
           />
           <PackageInfo
             title="Version"

@@ -110,6 +110,7 @@ const mockPackageObj: PackageObj = {
     directory: 'packages/react',
   },
   'description': 'React is a JavaScript library for building user interfaces.',
+  'author': { name: 'Test Author' },
   'maintainers': [
     {
       name: 'gnoff',
@@ -128,7 +129,7 @@ const mockPackageObj: PackageObj = {
       email: 'react-core@meta.com',
     },
   ],
-  'readme': '',
+  'readme': '# Test README',
   'readmeFilename': '',
   'users': {},
 };
