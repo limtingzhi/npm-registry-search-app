@@ -4,18 +4,12 @@ import SearchResults from '../components/SearchResults/SearchResults';
 import useSearchPackages from '../hooks/useSearchPackages';
 
 function SearchPackages() {
-  const {
-    errorMsg, isLoading, noOfResults, searchInput, searchPackages, searchResults, setSearchInput,
-  } = useSearchPackages();
+  const { errorMsg, isLoading, noOfResults, searchPackages, searchResults } = useSearchPackages();
 
   return (
     <Container sx={{ paddingY: 3 }}>
       <Stack spacing={3}>
-        <SearchInput
-          searchInput={searchInput}
-          searchPackages={searchPackages}
-          setSearchInput={setSearchInput}
-        />
+        <SearchInput searchPackages={searchPackages} />
         {errorMsg && (
           <Alert severity="error" variant="filled">
             {errorMsg}

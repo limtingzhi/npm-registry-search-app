@@ -1,13 +1,14 @@
 import { Button, OutlinedInput, Stack } from '@mui/material';
+import { useState } from 'react';
 
 interface Props {
-  searchInput: string;
-  searchPackages: (page: number) => void;
-  setSearchInput: (searchInput: string) => void;
+  searchPackages: (page: number, searchInput?: string) => void;
 }
 
 function SearchInput(props: Props) {
-  const { searchInput, searchPackages, setSearchInput } = props;
+  const { searchPackages } = props;
+
+  const [searchInput, setSearchInput] = useState<string>('');
 
   return (
     <Stack direction="row" spacing={2}>
@@ -21,7 +22,7 @@ function SearchInput(props: Props) {
       />
       <Button
         disableElevation
-        onClick={() => searchPackages(0)}
+        onClick={() => searchPackages(0, searchInput)}
         type="submit"
         variant="contained"
       >

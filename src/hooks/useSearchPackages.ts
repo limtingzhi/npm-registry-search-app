@@ -6,10 +6,8 @@ interface UseSearch {
   errorMsg: string | null;
   isLoading: boolean;
   noOfResults: number | null;
-  searchInput: string;
   searchPackages: (page: number) => void;
   searchResults: SearchPackageObj[] | null;
-  setSearchInput: (searchInput: string) => void;
 }
 
 function useSearchPackages(): UseSearch {
@@ -19,8 +17,8 @@ function useSearchPackages(): UseSearch {
   const [searchResults, setSearchResults] = useState<SearchPackageObj[] | null>(null);
   const [noOfResults, setNoOfResults] = useState<number | null>(null);
 
-  const searchPackages = useCallback(async (page: number) => {
-    const trimmedSearchInput = searchInput.trim();
+  const searchPackages = useCallback(async (page: number, input: string = searchInput) => {
+    const trimmedSearchInput = input.trim();
 
     if (trimmedSearchInput === '') {
       setErrorMsg('Please enter a search term.');
@@ -38,6 +36,7 @@ function useSearchPackages(): UseSearch {
     try {
       const result = await getPackages(trimmedSearchInput, page);
 
+      setSearchInput(trimmedSearchInput);
       setSearchResults(result.objects);
       setNoOfResults(result.total);
     } catch (error: any) {
@@ -51,10 +50,8 @@ function useSearchPackages(): UseSearch {
     errorMsg,
     isLoading,
     noOfResults,
-    searchInput,
     searchPackages,
     searchResults,
-    setSearchInput,
   };
 }
 
