@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PageNotFound should match snapshot with default state 1`] = `
+<DocumentFragment>
+  <div
+    class="MuiContainer-root MuiContainer-maxWidthLg css-j81c45-MuiContainer-root"
+  >
+    <div
+      class="MuiStack-root css-a76xbi-MuiStack-root"
+    >
+      <h1
+        class="MuiTypography-root MuiTypography-h1 MuiTypography-gutterBottom css-dyz9rb-MuiTypography-root"
+      >
+        404
+      </h1>
+      <p
+        class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom css-vjrxpc-MuiTypography-root"
+      >
+        We can't seem to find the page you're looking for.
+      </p>
+      <a
+        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-disableElevation css-1cu450-MuiButtonBase-root-MuiButton-root"
+        data-discover="true"
+        href="/"
+        tabindex="0"
+      >
+        Go Home
+      </a>
+    </div>
+  </div>
+</DocumentFragment>
+`;
