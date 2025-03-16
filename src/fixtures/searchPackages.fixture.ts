@@ -124,5 +124,6 @@ const mockSearchPackagesResponse: SearchPackagesResponse = {
 };
 
 export {
+  mockSearchPackageObjs,
   mockSearchPackagesResponse,
 };
