@@ -4,43 +4,42 @@ interface Maintainers {
 }
 
 interface SearchPackageObj {
+  dependents: number;
   downloads: {
     monthly: number;
     weekly: number;
   };
-  dependents: number;
-  updated: string;
-  searchScore: number;
+  flags: {
+    insecure: number;
+  };
   package: {
-    name: string;
-    keywords: string[];
-    version: string;
+    date: string;
     description: string;
-    sanitized_name: string;
+    keywords: string[];
+    license: string;
+    links: {
+      bugs: string;
+      homepage: string;
+      npm: string;
+      repository: string;
+    };
+    maintainers: Maintainers[];
+    name: string;
     publisher: {
       email: string;
       username: string;
     };
-    maintainers: Maintainers[];
-    license: string;
-    date: string;
-    links: {
-      homepage: string;
-      repository: string;
-      bugs: string;
-      npm: string;
-    };
+    sanitized_name: string;
+    updated: string;
+    version: string;
   };
   score: {
-    final: number;
     detail: {
+      maintenance: number;
       popularity: number;
       quality: number;
-      maintenance: number;
     };
-  };
-  flags: {
-    insecure: number;
+    final: number;
   };
 }
 
