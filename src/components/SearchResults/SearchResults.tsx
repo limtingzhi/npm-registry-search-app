@@ -4,6 +4,7 @@ import { useCallback, useState } from 'react';
 import { Link } from 'react-router';
 import { SEARCH_PACKAGES_PER_PAGE } from '../../constants/searchConstants';
 import { SearchPackageObj } from '../../typings/npm-registry';
+import { formatDate } from '../../utils/formats';
 
 interface Props {
   isLoading: boolean;
@@ -44,16 +45,7 @@ function SearchResults(props: Props) {
       headerName: 'Last Updated',
       minWidth: 200,
       type: 'dateTime',
-      valueFormatter: (_value, row) =>
-        new Intl.DateTimeFormat('en-SG', {
-          year: 'numeric',
-          month: 'short',
-          day: 'numeric',
-          hour: '2-digit',
-          minute: '2-digit',
-          hour12: true,
-          timeZone: 'Asia/Singapore',
-        }).format(new Date(row.package.date)),
+      valueFormatter: (_value, row) => formatDate(row.package.date),
     },
     {
       field: 'actions',
