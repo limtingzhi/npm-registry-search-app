@@ -1,12 +1,12 @@
 import { useCallback, useState } from 'react';
-import { getPackages } from '../api/npmRegistry';
-import { SearchPackageObj } from '../typings/npm-registry';
+import { getPackages } from '../../api/npmRegistry';
+import { SearchPackageObj } from '../../typings/npm-registry';
 
 interface UseSearch {
   errorMsg: string | null;
   isLoading: boolean;
   noOfResults: number | null;
-  searchPackages: (page: number) => void;
+  searchPackages: (page: number, searchInput?: string) => void;
   searchResults: SearchPackageObj[] | null;
 }
 

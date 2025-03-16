@@ -9,7 +9,7 @@ import { formatDate } from '../../utils/formats';
 interface Props {
   isLoading: boolean;
   noOfResults: number | null;
-  searchPackages: (page: number) => void;
+  searchPackages: (page: number, searchInput?: string) => void;
   searchResults: SearchPackageObj[] | null;
 }
 
