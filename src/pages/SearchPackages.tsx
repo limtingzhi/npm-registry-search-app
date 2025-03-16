@@ -9,7 +9,7 @@ function SearchPackages() {
   } = useSearchPackages();
 
   return (
-    <Container>
+    <Container sx={{ paddingY: 3 }}>
       <Stack spacing={3}>
         <SearchInput
           searchInput={searchInput}
