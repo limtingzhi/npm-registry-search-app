@@ -13,7 +13,9 @@ async function getPackages(searchInput: string, page: number): Promise<SearchPac
     const response = await fetch(url, options);
 
     if (!response.ok) {
-      throw new Error(`Error getting packages: ${response.status} ${response.statusText}`);
+      throw new Error(
+        `Error getting packages: ${response.status} ${response.statusText}`,
+      );
     }
 
     return await response.json();
@@ -34,7 +36,9 @@ async function getPackageDetails(packageName: string): Promise<PackageObj> {
     const response = await fetch(url, options);
 
     if (!response.ok) {
-      throw new Error(`Error getting package details: ${response.status} ${response.statusText}`);
+      throw new Error(
+        `Error getting package details: ${response.status} ${response.statusText}`,
+      );
     }
 
     return await response.json();

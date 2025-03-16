@@ -10,12 +10,8 @@ function PackageInfo(props: Props) {
 
   return (
     <Box>
-      <Typography variant="h6">
-        {title}
-      </Typography>
-      <Typography variant="body1">
-        {body}
-      </Typography>
+      <Typography variant="h6">{title}</Typography>
+      <Typography variant="body1">{body}</Typography>
     </Box>
   );
 }

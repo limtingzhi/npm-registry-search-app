@@ -60,7 +60,9 @@ function Package(props: Props) {
           />
         </Grid>
         <Grid size={{ xs: 12, md: 8 }}>
-          <ReactMarkdown children={packageDetails.readme || 'No README available'} />
+          <ReactMarkdown
+            children={packageDetails.readme || 'No README available'}
+          />
         </Grid>
       </Grid>
     </Stack>
