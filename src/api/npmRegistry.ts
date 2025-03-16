@@ -1,12 +1,11 @@
+import { SEARCH_PACKAGES_PER_PAGE } from '../constants/searchConstants';
 import { SearchPackagesResponse } from '../typings/npm-registry';
 
 const NPM_REGISTRY_API_URL = 'https://registry.npmjs.org';
 
-const SEARCH_PACKAGES_PER_PAGE = 50;
-
 async function getPackages(searchInput: string, page: number): Promise<SearchPackagesResponse> {
   const encodedQuery = encodeURIComponent(searchInput);
-  const offsetNoOfResults = (page - 1) * SEARCH_PACKAGES_PER_PAGE;
+  const offsetNoOfResults = page * SEARCH_PACKAGES_PER_PAGE;
   const url = `${NPM_REGISTRY_API_URL}/-/v1/search?text=${encodedQuery}&size=${SEARCH_PACKAGES_PER_PAGE}&from=${offsetNoOfResults}`;
   const options = { method: 'GET' };
 

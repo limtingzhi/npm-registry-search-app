@@ -1,0 +1,5 @@
+const SEARCH_PACKAGES_PER_PAGE = 50;
+
+export {
+  SEARCH_PACKAGES_PER_PAGE,
+};

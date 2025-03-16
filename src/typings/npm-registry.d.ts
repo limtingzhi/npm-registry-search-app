@@ -3,7 +3,7 @@ interface Maintainers {
   username: string;
 }
 
-interface SearchPackage {
+interface SearchPackageObj {
   downloads: {
     monthly: number;
     weekly: number;
@@ -45,12 +45,12 @@ interface SearchPackage {
 }
 
 interface SearchPackagesResponse {
-  objects: SearchPackage[];
+  objects: SearchPackageObj[];
   time: string;
   total: number;
 }
 
 export {
-  SearchPackage,
+  SearchPackageObj,
   SearchPackagesResponse,
 };
