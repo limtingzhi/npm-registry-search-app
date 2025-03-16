@@ -6,7 +6,7 @@ import usePackageDetails from '../../hooks/usePackageDetails/usePackageDetails';
 function PackageDetails() {
   const { name } = useParams<{ name: string; }>();
 
-  const { errorMsg, isLoading, packageDetails } = usePackageDetails({ packageName: name ?? null });
+  const { errorMsg, isLoading, packageDetails } = usePackageDetails({ packageName: name });
 
   return (
     <Container sx={{ paddingY: 3 }}>

@@ -3,7 +3,7 @@ import { getPackageDetails } from '../../api/npmRegistry';
 import { PackageObj } from '../../typings/npm-registry';
 
 interface Props {
-  packageName: string | null;
+  packageName: string | null | undefined;
 }
 
 interface UsePackageDetails {
@@ -24,7 +24,7 @@ function usePackageDetails(props: Props): UsePackageDetails {
     setErrorMsg(null);
 
     try {
-      if (packageName === null) {
+      if (packageName == null) {
         setErrorMsg('Package name is missing.');
         return;
       }
