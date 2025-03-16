@@ -1,6 +1,7 @@
-import { Box } from '@mui/material';
+import { Box, Button } from '@mui/material';
 import { DataGrid, GridColDef, GridPaginationModel } from '@mui/x-data-grid';
 import { useCallback, useState } from 'react';
+import { Link } from 'react-router';
 import { SEARCH_PACKAGES_PER_PAGE } from '../../constants/searchConstants';
 import { SearchPackageObj } from '../../typings/npm-registry';
 
@@ -53,6 +54,21 @@ function SearchResults(props: Props) {
           hour12: true,
           timeZone: 'Asia/Singapore',
         }).format(new Date(row.package.date)),
+    },
+    {
+      field: 'actions',
+      headerName: 'Actions',
+      minWidth: 150,
+      renderCell: params => (
+        <Button
+          component={Link}
+          disableElevation
+          to={`/package/${encodeURIComponent(params.id)}`}
+          variant="contained"
+        >
+          View Details
+        </Button>
+      ),
     },
   ];
 
