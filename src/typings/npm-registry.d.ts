@@ -99,10 +99,10 @@ interface Version {
 interface PackageObj {
   '_attachments'?: Record<string, unknown>;
   '_id': string;
-  '_rev': string;
+  '_rev'?: string;
   'author'?: Author;
   'description'?: string;
-  'dist-tags': DistTags;
+  'dist-tags'?: DistTags;
   'license'?: string;
   'name': string;
   'readme'?: string;
@@ -112,7 +112,7 @@ interface PackageObj {
     modified: string;
     [key: string]: string;
   };
-  'versions': Record<string, Version>;
+  'versions'?: Record<string, Version>;
 }
 
 export {

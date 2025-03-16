@@ -56,7 +56,7 @@ function Package(props: Props) {
           />
           <PackageInfo
             title="Version"
-            body={packageDetails['dist-tags'].latest}
+            body={packageDetails['dist-tags']?.latest || 'No version available'}
           />
         </Grid>
         <Grid size={{ xs: 12, md: 8 }}>
