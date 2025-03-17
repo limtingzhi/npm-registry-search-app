@@ -11,9 +11,7 @@ const mockPackageObj: PackageObj = {
     '19.0.0': {
       name: 'react',
       version: '19.0.0',
-      keywords: [
-        'react',
-      ],
+      keywords: ['react'],
       license: 'MIT',
       _id: 'react@19.0.0',
       maintainers: [
@@ -101,9 +99,7 @@ const mockPackageObj: PackageObj = {
   },
   'license': 'MIT',
   'homepage': 'https://react.dev/',
-  'keywords': [
-    'react',
-  ],
+  'keywords': ['react'],
   'repository': {
     url: 'git+https://github.com/facebook/react.git',
     type: 'git',

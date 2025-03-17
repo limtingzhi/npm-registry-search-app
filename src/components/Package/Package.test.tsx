@@ -24,7 +24,9 @@ describe('Package', () => {
     expect(screen.getByText('react')).toBeInTheDocument();
     expect(screen.getByText('Test Author')).toBeInTheDocument();
     expect(
-      screen.getByText('React is a JavaScript library for building user interfaces.'),
+      screen.getByText(
+        'React is a JavaScript library for building user interfaces.',
+      ),
     ).toBeInTheDocument();
     expect(screen.getByText('Mocked Date')).toBeInTheDocument();
     expect(screen.getByText('MIT')).toBeInTheDocument();

@@ -63,7 +63,10 @@ describe('SearchResults', () => {
           searchResults={[
             {
               ...mockSearchResults[0],
-              package: { ...mockSearchResults[0].package, name: '@types/react' },
+              package: {
+                ...mockSearchResults[0].package,
+                name: '@types/react',
+              },
             },
           ]}
         />

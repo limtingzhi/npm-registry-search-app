@@ -73,7 +73,8 @@ describe('npmRegistry', () => {
       expect(details).toEqual(mockPackageObj);
       expect(fetchMock).toHaveBeenCalledWith(
         `https://registry.npmjs.org/react`,
-        { method: 'GET' });
+        { method: 'GET' },
+      );
     });
 
     test('should encode package name', async () => {
@@ -83,7 +84,8 @@ describe('npmRegistry', () => {
 
       expect(fetchMock).toHaveBeenCalledWith(
         `https://registry.npmjs.org/%40types%2Freact`,
-        { method: 'GET' });
+        { method: 'GET' },
+      );
     });
 
     test('should throw error on 404 response', async () => {
